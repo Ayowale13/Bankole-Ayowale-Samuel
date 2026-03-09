@@ -1,0 +1,23 @@
+-- Task 1: Applicants Ranking
+
+SELECT
+    id,
+    scores,
+    RANK() OVER (ORDER BY scores DESC) AS position
+FROM examination;
+
+
+-- Task 2: FULL JOIN Range
+
+-- Minimum rows: 30
+-- Maximum rows: 50
+
+
+-- Task 3: Purchases
+
+SELECT DISTINCT a.client_id
+FROM account a
+JOIN transaction t
+ON a.id = t.account_id
+WHERE t.amount < 5000
+AND t.transaction_date >= CURRENT_DATE - INTERVAL '1 month';
